@@ -20,14 +20,17 @@ public class WriteRequestSenderService extends BaseRequestSender {
     public void send() {
         int firstNumber  = random.nextInt(LOWER_BOUND, UPPER_BOUND);
         int secondNumber = random.nextInt(LOWER_BOUND, UPPER_BOUND);
+        String message = "ESCRITA|" + firstNumber + "|" + secondNumber;
+
+        System.out.println("Sending request: " + message);
 
         loggerService.registerLog(firstNumber, secondNumber);
 
         try {
-            this.loadBalancerProvider.sendRequest("ESCRITA|" + firstNumber + "|" + secondNumber);
-            IO.println("Cliente enviou escrita " + firstNumber + ", " + secondNumber);
+            this.loadBalancerProvider.sendRequest(message);
+            System.out.println("Cliente enviou escrita " + firstNumber + ", " + secondNumber);
         } catch (Exception e) {
-            IO.println("Erro ao enviar escrita: " + e.getMessage());
+            System.out.println("Erro ao enviar escrita: " + e.getMessage());
         }
     }
 }

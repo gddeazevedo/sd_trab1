@@ -5,7 +5,7 @@ import org.cefet.sd.tasks.ClientTask;
 public class Main {
     static void main() {
         final var clientTask = new ClientTask();
-        IO.print("Starting Client...");
+        System.out.println("Starting Client...");
 
         while (true) {
             clientTask.execute();

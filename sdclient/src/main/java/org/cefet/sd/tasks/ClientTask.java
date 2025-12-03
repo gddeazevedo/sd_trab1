@@ -33,7 +33,7 @@ public class ClientTask {
             int sleepTime = random.nextInt(SLEEP_MS_LOWER_BOUND, SLEEP_MS_UPPER_BOUND);
             Thread.sleep(sleepTime);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
