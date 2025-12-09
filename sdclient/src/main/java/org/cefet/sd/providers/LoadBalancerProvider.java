@@ -11,8 +11,10 @@ public class LoadBalancerProvider {
     protected final String loadBalancerIp;
 
     public LoadBalancerProvider() {
-        this.loadBalancerPort = 8888;
-        this.loadBalancerIp   = "0.0.0.0";
+        this.loadBalancerPort = Integer.parseInt(
+            System.getenv().getOrDefault("LOADBALANCER_PORT", "8888")
+        );
+        this.loadBalancerIp = System.getenv().getOrDefault("LOADBALANCER_HOST", "localhost");
     }
 
     public String sendRequest(String message) throws IOException {
