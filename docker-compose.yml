@@ -1,0 +1,69 @@
+services:
+  loadbalancer:
+    build:
+      context: ./sdloadbalancer
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - SERVERS=server1:5001,server2:5002,server3:5003
+    networks:
+      - sd-network
+    # depends_on:
+    #   - server1
+    #   - server2
+    #   - server3
+
+  client:
+    build:
+      context: ./sdclient
+      dockerfile: Dockerfile
+    environment:
+      - LOADBALANCER_HOST=loadbalancer
+      - LOADBALANCER_PORT=8888
+    networks:
+      - sd-network
+    depends_on:
+      - loadbalancer
+    stdin_open: true
+    tty: true
+  
+  # server1:
+  #   build:
+  #     context: ./sdserver
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5001:5001"
+  #   environment:
+  #     - PORT=5001
+  #     - SERVER_ID=server1
+  #   networks:
+  #     - sd-network
+
+  # server2:
+  #   build:
+  #     context: ./sdserver
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5002:5002"
+  #   environment:
+  #     - PORT=5002
+  #     - SERVER_ID=server2
+  #   networks:
+  #     - sd-network
+
+  # server3:
+  #   build:
+  #     context: ./sdserver
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5003:5003"
+  #   environment:
+  #     - PORT=5003
+  #     - SERVER_ID=server3
+  #   networks:
+  #     - sd-network
+
+networks:
+  sd-network:
+    driver: bridge
