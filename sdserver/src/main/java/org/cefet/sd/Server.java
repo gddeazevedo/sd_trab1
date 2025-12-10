@@ -17,7 +17,7 @@ public class Server {
         var lock = new ReentrantLock();
         var writeRequestsQueue = new LinkedBlockingQueue<String>();
 
-        var fileName = "server_" + port + ".txt";
+        var fileName = "./data/server_" + port + ".txt";
         new FileManagerService(fileName)
                 .createFile();
 

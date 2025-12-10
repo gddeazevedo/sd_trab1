@@ -25,6 +25,8 @@ services:
       - sd-network
     depends_on:
       - loadbalancer
+    volumes:
+      - ./sdclient/data:/app/data
     stdin_open: true
     tty: true
   
@@ -32,6 +34,7 @@ services:
     build:
       context: ./sdserver
       dockerfile: Dockerfile
+    container_name: server1 
     ports:
       - "5001:5001"
     environment:
@@ -40,11 +43,14 @@ services:
       - SERVER_ID=server1
     networks:
       - sd-network
+    volumes:
+      - ./sdserver/data:/app/data
 
   server2:
     build:
       context: ./sdserver
       dockerfile: Dockerfile
+    container_name: server2
     ports:
       - "5002:5002"
     environment:
@@ -53,11 +59,14 @@ services:
       - SERVER_ID=server2
     networks:
       - sd-network
+    volumes:
+      - ./sdserver/data:/app/data
 
   server3:
     build:
       context: ./sdserver
       dockerfile: Dockerfile
+    container_name: server3
     ports:
       - "5003:5003"
     environment:
@@ -66,7 +75,10 @@ services:
       - SERVER_ID=server3
     networks:
       - sd-network
+    volumes:
+      - ./sdserver/data:/app/data
 
 networks:
   sd-network:
     driver: bridge
+

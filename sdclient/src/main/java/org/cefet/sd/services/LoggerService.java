@@ -8,7 +8,7 @@ public class LoggerService {
     private final String fileName;
 
     public LoggerService() {
-        this.fileName = "client_log.txt";
+        this.fileName = "./data/client_log.txt";
         this.createLogFile();
     }
     
