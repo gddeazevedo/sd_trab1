@@ -20,6 +20,7 @@ public class ReadRequestHandlerService {
         for (var entry : servers.entrySet()) {
             final String host = entry.getKey();
             final int port = entry.getValue();
+            System.out.println("Sending READ to " + port);
             executor.submit(() -> this.serverProvider.sendMessage(host, port, message));
         }
     }

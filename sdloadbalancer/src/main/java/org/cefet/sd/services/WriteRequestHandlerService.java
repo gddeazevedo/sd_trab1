@@ -20,6 +20,7 @@ public class WriteRequestHandlerService {
         var chosenServer = this.getServerAtRandom();
         String host = chosenServer.getKey();
         int port = chosenServer.getValue();
+        System.out.println("Sending WRITE to " + port);
         this.serverProvider.sendMessage(host, port, message);
     }
 

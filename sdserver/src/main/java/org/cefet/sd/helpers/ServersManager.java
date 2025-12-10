@@ -33,8 +33,8 @@ public class ServersManager implements MessageTypes {
         counterSet.add(writeRequests.size());
 
         allServers.put("localhost", 5001);
-//        allServers.put("127.0.0.1", 5002);
-//        allServers.put("127.0.0.2", 5003);
+        allServers.put("127.0.0.1", 5002);
+        allServers.put("127.0.0.2", 5003);
 
         for (var entry : allServers.entrySet()) {
             String host = entry.getKey();
@@ -46,9 +46,10 @@ public class ServersManager implements MessageTypes {
 
             try {
                 var response = serverProvider.send(COUNT, host, port);
+                System.out.println("RESPONSE: " + response);
                 counterSet.add(Integer.parseInt(response));
             } catch (IOException e) {
-                System.out.println("Error: " + e.getMessage());
+                System.out.println("Error 5: " + e.getMessage());
             }
         }
 

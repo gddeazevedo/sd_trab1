@@ -20,9 +20,9 @@ public class WriteTask extends Task implements MessageTypes {
         int firstNumber = Integer.parseInt(parts[1]);
         int secondNumber = Integer.parseInt(parts[2]);
         int gcd = this.gcdCalculatorService.calculateGCD(firstNumber, secondNumber);
-        var messageToSave = "O MDC entre " + firstNumber + " e " + secondNumber + " é" + gcd;
+        var messageToSave = "O MDC entre " + firstNumber + " e " + secondNumber + " é " + gcd;
         this.fileManagerService.write(messageToSave);
         ServersManager.addWriteRequest(message);
-//        ServersManager.replicateMessage(REPL + "|" + messageToSave);
+        ServersManager.replicateMessage(REPL + "|" + messageToSave);
     }
 }

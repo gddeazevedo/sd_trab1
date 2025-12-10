@@ -12,7 +12,7 @@ import org.cefet.sd.helpers.ServersManager;
 
 public class Server {
     static void main(String[] args) {
-        int port = Integer.parseInt(args[0]);
+        int port = 5001;
 
         var lock = new ReentrantLock();
         var writeRequestsQueue = new LinkedBlockingQueue<String>();

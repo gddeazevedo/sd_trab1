@@ -24,7 +24,7 @@ public class ReplicateTask extends Task {
             this.fileManagerService.write(messageToSave);
             ServersManager.addWriteRequest(message);
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error 6: " + e.getMessage());
         } finally {
             lock.unlock();
         }

@@ -27,20 +27,33 @@ public class ServerWorker extends Thread implements MessageTypes {
     @Override
     public void run() {
         try {
-            var printWriter = new PrintWriter(this.request.getOutputStream());
+            var printWriter = new PrintWriter(this.request.getOutputStream(), true);
             var inputStreamReader = new InputStreamReader(this.request.getInputStream());
             var bufferedReader = new BufferedReader(inputStreamReader);
 
             var message = bufferedReader.readLine();
             var messageType = message.split("\\|")[0];
 
-            switch (messageType) {
-                case READ -> new ReadTask(lock).handle(message);
-                case WRITE -> writeRequestsQueue.put(message);
-                case REPL -> new ReplicateTask(lock).handle(message);
-                case COUNT -> printWriter.println(ServersManager.getWriteRequestsCount());
+            if (messageType.equals(READ)) {
+                new ReadTask(lock).handle(message);
+                printWriter.println("OK");
             }
 
+            if (messageType.equals(WRITE)) {
+                writeRequestsQueue.put(message);
+                printWriter.println("OK");
+            }
+
+            if (messageType.equals(REPL)) {
+                new ReplicateTask(lock).handle(message);
+                printWriter.println("OK");
+            }
+
+            if (messageType.equals(COUNT)) {
+                printWriter.println(ServersManager.getWriteRequestsCount());
+            }
+
+            this.request.close();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

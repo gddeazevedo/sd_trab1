@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0a6185b-17b6-4b0b-a3fc-e217ab166824" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../sdloadbalancer/src/main/java/org/cefet/sd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sdloadbalancer/src/main/java/org/cefet/sd/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdloadbalancer/src/main/java/org/cefet/sd/services/ReadRequestHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sdloadbalancer/src/main/java/org/cefet/sd/services/ReadRequestHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdloadbalancer/src/main/java/org/cefet/sd/services/WriteRequestHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sdloadbalancer/src/main/java/org/cefet/sd/services/WriteRequestHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/server_5001.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/helpers/ServersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/helpers/ServersManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/tasks/ReadTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/tasks/ReplicateTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/tasks/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/tasks/WriteTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/workers/QueueWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/workers/QueueWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/workers/ServerWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sdserver/src/main/java/org/cefet/sd/workers/ServerWorker.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="36dQCvy8PaKOePRm7vPuVA0b9LT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/gabriel/Documents/Projects/sd_trab1/sdserver3",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.cefet.sd.Server" />
+      <module name="sdserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.cefet.sd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0a6185b-17b6-4b0b-a3fc-e217ab166824" name="Changes" comment="" />
+      <created>1765333845067</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765333845067</updated>
+      <workItem from="1765333846153" duration="942000" />
+      <workItem from="1765335366854" duration="464000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

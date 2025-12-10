@@ -11,8 +11,8 @@ public class Main {
         var servers = new HashMap<String, Integer>();
 
         servers.put("localhost", 5001);
-//        servers.put("127.0.0.1", 5002);
-//        servers.put("127.0.0.2", 5003);
+        servers.put("127.0.0.1", 5002);
+        servers.put("127.0.0.2", 5003);
 
         try {
             LoadBalancerTask loadBalancerTask = new LoadBalancerTask(port, servers);

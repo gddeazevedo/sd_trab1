@@ -27,21 +27,16 @@ public class QueueWorker extends Thread implements MessageTypes {
                     continue;
                 }
 
-                lock.lock();
-
-                try {
-                    if (!ServersManager.verifyConsistency()) {
-                        System.out.println("Waiting for cosistency");
-                        Thread.sleep(100);
-                    }
-
-                    var message = writeRequestQueue.take();
-                    this.writeTask.handle(message);
-                } finally {
-                    lock.unlock();
+                if (!ServersManager.verifyConsistency()) {
+                    System.out.println("Waiting for cosistency");
+                    Thread.sleep(100);
                 }
+
+                var message = writeRequestQueue.take();
+                this.writeTask.handle(message);
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }
