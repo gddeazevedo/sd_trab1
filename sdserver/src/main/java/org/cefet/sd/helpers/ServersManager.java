@@ -32,10 +32,6 @@ public class ServersManager implements MessageTypes {
         HashSet<Integer> counterSet = new HashSet<>();
         counterSet.add(writeRequests.size());
 
-        allServers.put("localhost", 5001);
-        allServers.put("127.0.0.1", 5002);
-        allServers.put("127.0.0.2", 5003);
-
         for (var entry : allServers.entrySet()) {
             String host = entry.getKey();
             int port = entry.getValue();
@@ -57,10 +53,6 @@ public class ServersManager implements MessageTypes {
     }
 
     public static void replicateMessage(String message) {
-        allServers.put("localhost", 5001);
-        allServers.put("127.0.0.1", 5002);
-        allServers.put("127.0.0.2", 5003);
-
         for (var entry : allServers.entrySet()) {
             String host = entry.getKey();
             int port = entry.getValue();
@@ -74,6 +66,26 @@ public class ServersManager implements MessageTypes {
             } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());
             }
+        }
+    }
+
+    public static void setServers() {
+        String serversEnv = System.getenv("OTHER_SERVERS");
+
+        if (serversEnv == null || serversEnv.isEmpty()) {
+            allServers.put("localhost", 5001);
+            allServers.put("127.0.0.1", 5002);
+            allServers.put("127.0.0.2", 5003);
+            
+        }
+
+        String[] serverList = serversEnv.split(",");
+
+        for (String server : serverList) {
+            String[] parts = server.trim().split(":");
+            var host = parts[0];
+            var port = Integer.parseInt(parts[1]);
+            allServers.put(host, port);
         }
     }
 }

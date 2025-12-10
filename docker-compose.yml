@@ -9,10 +9,10 @@ services:
       - SERVERS=server1:5001,server2:5002,server3:5003
     networks:
       - sd-network
-    # depends_on:
-    #   - server1
-    #   - server2
-    #   - server3
+    depends_on:
+      - server1
+      - server2
+      - server3
 
   client:
     build:
@@ -28,41 +28,44 @@ services:
     stdin_open: true
     tty: true
   
-  # server1:
-  #   build:
-  #     context: ./sdserver
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "5001:5001"
-  #   environment:
-  #     - PORT=5001
-  #     - SERVER_ID=server1
-  #   networks:
-  #     - sd-network
+  server1:
+    build:
+      context: ./sdserver
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - OTHER_SERVERS=server2:5002,server3:5003
+      - PORT=5001
+      - SERVER_ID=server1
+    networks:
+      - sd-network
 
-  # server2:
-  #   build:
-  #     context: ./sdserver
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "5002:5002"
-  #   environment:
-  #     - PORT=5002
-  #     - SERVER_ID=server2
-  #   networks:
-  #     - sd-network
+  server2:
+    build:
+      context: ./sdserver
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - OTHER_SERVERS=server1:5001,server3:5003
+      - PORT=5002
+      - SERVER_ID=server2
+    networks:
+      - sd-network
 
-  # server3:
-  #   build:
-  #     context: ./sdserver
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "5003:5003"
-  #   environment:
-  #     - PORT=5003
-  #     - SERVER_ID=server3
-  #   networks:
-  #     - sd-network
+  server3:
+    build:
+      context: ./sdserver
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    environment:
+      - OTHER_SERVERS=server1:5001,server2:5002
+      - PORT=5003
+      - SERVER_ID=server3
+    networks:
+      - sd-network
 
 networks:
   sd-network:

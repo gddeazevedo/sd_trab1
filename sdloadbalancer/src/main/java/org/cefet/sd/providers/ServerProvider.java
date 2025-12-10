@@ -12,7 +12,7 @@ public class ServerProvider {
             printWriter.println(message);
             socket.close();
         } catch (IOException e) {
-            System.out.println("An error occurred: " + e.getMessage());
+            System.out.println("An error occurred with: " + host + ":" + port + " - " + e.getMessage());
         }
     }
 }
