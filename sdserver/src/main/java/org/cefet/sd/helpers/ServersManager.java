@@ -62,6 +62,7 @@ public class ServersManager implements MessageTypes {
             }
 
             try {
+                System.out.println("Replicating to " + host + ":" + port);
                 serverProvider.send(message, host, port);
             } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());
@@ -76,7 +77,6 @@ public class ServersManager implements MessageTypes {
             allServers.put("localhost", 5001);
             allServers.put("127.0.0.1", 5002);
             allServers.put("127.0.0.2", 5003);
-            
         }
 
         String[] serverList = serversEnv.split(",");

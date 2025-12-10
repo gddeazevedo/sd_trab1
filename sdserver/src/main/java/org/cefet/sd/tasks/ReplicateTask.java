@@ -6,11 +6,10 @@ import org.cefet.sd.helpers.ServersManager;
 import org.cefet.sd.services.FileManagerService;
 
 public class ReplicateTask extends Task {
-    private final ReentrantLock lock;
     private final FileManagerService fileManagerService;
 
     public ReplicateTask(ReentrantLock lock) {
-        this.lock = lock;
+        super(lock);
         this.fileManagerService = new FileManagerService();
     }
 

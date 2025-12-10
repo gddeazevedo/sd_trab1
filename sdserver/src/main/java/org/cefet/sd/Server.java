@@ -22,9 +22,8 @@ public class Server {
                 .createFile();
 
         new QueueWorker(writeRequestsQueue, lock).start();
-
-        try {
-            var server = new ServerSocket(port);
+       
+        try (var server = new ServerSocket(port)) {
             System.out.println("Server [" + port + "] started");
 
             ServersManager.setCurrentPort(port);

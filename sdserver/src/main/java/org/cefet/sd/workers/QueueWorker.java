@@ -1,21 +1,18 @@
 package org.cefet.sd.workers;
 
-
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.LinkedBlockingQueue;
 import org.cefet.sd.tasks.WriteTask;
 import org.cefet.sd.interfaces.MessageTypes;
 import org.cefet.sd.helpers.ServersManager;
 
 public class QueueWorker extends Thread implements MessageTypes {
     private final LinkedBlockingQueue<String> writeRequestQueue;
-    private final ReentrantLock lock;
     private final WriteTask writeTask;
 
     public QueueWorker(LinkedBlockingQueue<String> writeRequestQueue, ReentrantLock lock) {
         this.writeRequestQueue = writeRequestQueue;
-        this.lock = lock;
-        this.writeTask = new WriteTask();
+        this.writeTask = new WriteTask(lock);
     }
 
     @Override
