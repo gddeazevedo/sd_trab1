@@ -2,17 +2,17 @@ package org.cefet.sd.tasks;
 
 import java.util.concurrent.locks.ReentrantLock;
 import org.cefet.sd.interfaces.MessageTypes;
-import org.cefet.sd.services.GCDCalculatorService;
+import org.cefet.sd.services.CalculatorService;
 import org.cefet.sd.services.FileManagerService;
 import org.cefet.sd.helpers.ServersManager;
 
 public class WriteTask extends Task implements MessageTypes {
-    private final GCDCalculatorService gcdCalculatorService;
+    private final CalculatorService CalculatorService;
     private final FileManagerService fileManagerService;
 
     public WriteTask(ReentrantLock lock) {
         super(lock);
-        this.gcdCalculatorService = new GCDCalculatorService();
+        this.CalculatorService = new CalculatorService();
         this.fileManagerService = new FileManagerService();
     }
 
@@ -22,9 +22,9 @@ public class WriteTask extends Task implements MessageTypes {
 
         int firstNumber = Integer.parseInt(parts[1]);
         int secondNumber = Integer.parseInt(parts[2]);
-        int gcd = this.gcdCalculatorService.calculateGCD(firstNumber, secondNumber);
+        int mdc = this.CalculatorService.calculate(firstNumber, secondNumber);
 
-        var messageToSave = "O MDC entre " + firstNumber + " e " + secondNumber + " é " + gcd;
+        var messageToSave = "O MDC entre " + firstNumber + " e " + secondNumber + " é " + mdc;
 
         lock.lock();
         try {
