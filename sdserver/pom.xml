@@ -23,7 +23,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.cefet.sd.Server</mainClass>
+                            <mainClass>org.cefet.sd.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
